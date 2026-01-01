@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global root variables, theme */
+:root {
+  --font-family-base: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Full screen setup */
+html,
+body,
+#root {
+  @apply h-full m-0;
+}
+
+body {
+  @apply min-h-full w-full bg-gray-900 text-white font-sans;
+  font-family: var(--font-family-base);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+a {
+  @apply font-medium text-indigo-400 no-underline;
+}
+a:hover {
+  @apply text-indigo-500;
+}
+
+h1 {
+  @apply text-[3.2rem] leading-tight;
+}
+
+button {
+  @apply rounded-lg border border-transparent px-5 py-2 text-base font-medium bg-gray-900 cursor-pointer transition-colors;
+}
+button:hover {
+  @apply border-indigo-400;
+}
+button:focus,
+button:focus-visible {
+  @apply outline outline-4 outline-offset-2;
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  body {
+    @apply bg-white text-gray-900;
+  }
+  a:hover {
+    @apply text-indigo-400;
+  }
+  button {
+    @apply bg-gray-100;
+  }
+}
