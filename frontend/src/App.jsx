@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import CategoryDetailsPage from "./pages/CategoryDetailsPage";
 import LoginModal from "./components/LoginModal";
 import "./index.css"; // <-- Tailwind CSS файлыг энд import хийнэ
+import CarDetailPage from "./pages/CarDetailPage";
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
@@ -54,6 +55,7 @@ function App() {
           {/* <Route path="/add-car" element={<AddCarPage user={user} />} /> */}
         </Routes>
       </div>
+      <Route path="/car/:id" element={<CarDetailPage />} />
     </Router>
   );
 }

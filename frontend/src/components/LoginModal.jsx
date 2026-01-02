@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "../config/api.js";
 
 const LoginModal = ({ onClose, onLoginSuccess }) => {
   const [phone, setPhone] = useState("");
@@ -18,7 +19,7 @@ const LoginModal = ({ onClose, onLoginSuccess }) => {
 
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post(`${API_BASE_URL}/auth/login`, {
         phone: "+976" + phone.replace(/\D/g, ""),
       });
 

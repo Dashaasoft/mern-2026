@@ -168,3 +168,21 @@ export const getBrandsByCategory = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+/* ================= GET CAR BY ID ================= */
+export const getCarAdById = async (req, res) => {
+  try {
+    const car = await CarAd.findById(req.params.id).populate(
+      "user",
+      "name phone"
+    );
+
+    if (!car) {
+      return res.status(404).json({ message: "Зар олдсонгүй" });
+    }
+
+    res.json(car);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};

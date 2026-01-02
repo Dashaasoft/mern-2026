@@ -7,30 +7,24 @@ import {
   deleteCarAd,
   getCategoryCounts,
   getBrandsByCategory,
+  getCarAdById,
 } from "../controllers/car.controller.js";
 import { verifyToken } from "../middleware/auth.middleware.js";
 
 const router = express.Router();
 
-// ✅ Категориар зарын тоог авах (ДАРААЛАЛ ЧУХАЛ: /:id-ээс өмнө байх ёстой)
+// ===== STATIC ROUTES =====
 router.get("/categories/counts", getCategoryCounts);
-
-// ✅ Ангилалаар брэндүүдийг авах
 router.get("/brands/:autoType", getBrandsByCategory);
-
-// ✅ Өөрийн заруудыг харах (/:id-ээс өмнө байх ёстой)
 router.get("/my", verifyToken, getMyCarAds);
 
-// ✅ Бүх зар харах
+// ===== PUBLIC =====
 router.get("/", getCarAds);
+router.get("/:id", getCarAdById); // ✅ ЭНД БАЙРЛАНА
 
-// ✅ Шинэ зар нэмэх
+// ===== PROTECTED =====
 router.post("/", verifyToken, createCarAd);
-
-// ✅ Зар засварлах (зөвхөн эзэн өөрөө засна)
 router.put("/:id", verifyToken, updateCarAd);
-
-// ✅ Зар устгах (зөвхөн эзэн өөрөө устгана)
 router.delete("/:id", verifyToken, deleteCarAd);
 
 export default router;

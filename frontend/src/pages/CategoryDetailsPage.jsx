@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "../api/axios";
+import { API_URL } from "../config/api.js";
 
 const CategoryDetailsPage = () => {
   const { autoType } = useParams();
@@ -151,7 +152,7 @@ const CategoryDetailsPage = () => {
                     <img
                       src={
                         car.images?.length
-                          ? `http://localhost:5000/uploads/${car.images[0]}`
+                          ? `${API_URL}/uploads/${car.images[0]}`
                           : "https://via.placeholder.com/300x200"
                       }
                       alt=""

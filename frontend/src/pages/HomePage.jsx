@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginModal from "../components/LoginModal";
 import axios from "../api/axios";
+import { API_URL } from "../config/api.js";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -216,7 +217,7 @@ const HomePage = () => {
                   <img
                     src={
                       car.images?.length
-                        ? `http://localhost:5000/uploads/${car.images[0]}`
+                        ? `${API_URL}/uploads/${car.images[0]}`
                         : "https://via.placeholder.com/300x200"
                     }
                     alt=""
